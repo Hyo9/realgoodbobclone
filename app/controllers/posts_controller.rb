@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
 
     def main
+         @post4s = Post4.order(likes_count: :desc)
     end
     
 #####################  1 ########################################
@@ -104,6 +105,7 @@ class PostsController < ApplicationController
           @post4 = Post4.find(params[:post4_id])
     end
     
+
     
     
     def destroy3
@@ -140,7 +142,8 @@ class PostsController < ApplicationController
     
     
     def index4  
-        @post4s = Post4.all
+    @post4s = Post4.order(likes_count: :desc)
+    @post4s2=Post4.order(created_at: :desc)
     end
     
     def show4

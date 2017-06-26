@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626052244) do
+ActiveRecord::Schema.define(version: 20170626105001) do
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post4_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "likes", ["post4_id"], name: "index_likes_on_post4_id"
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "post2s", force: :cascade do |t|
     t.string   "title"
@@ -74,9 +84,10 @@ ActiveRecord::Schema.define(version: 20170626052244) do
     t.string   "place5"
     t.string   "image5"
     t.text     "memo5"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.integer  "likes_count"
   end
 
   add_index "post4s", ["user_id"], name: "index_post4s_on_user_id"

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'posts/index'
   
   
+  get 'posts/like' => 'likes#like_toggle'
+  post 'posts/:post_id/like' => 'likes#like_toggle'
   
   get '/posts/create2/:post_id' => 'posts#create2'
   get 'posts/index2'

@@ -1,6 +1,6 @@
 <h2>index4</h2>
 
-
+<h2>HOT</h2>
 <% @post4s.each do |post| %>
 
     <%= post.user.email.split("@").first %>
@@ -33,7 +33,73 @@
     ###########################################
     <a href="/posts/show4/<%= post.id %>">이거 볼래애ㅐㅐ애ㅐㅐㅐㅐㅐ</a>
     ###########################################
+    
+    <% if current_user.is_like?(post) %>
+    
+    <%= link_to "/posts/#{post.id}/like", method: "post" do %>좋아요 해제 <% end %>
+    
+    <% else %>
+    
+    <%= link_to "/posts/#{post.id}/like", method: "post" do %>좋아요 <% end %>
+    
+    <% end %>
+
+    
+    <%if post.likes_count ==nil %> 0
+    <%else %> <%= post.likes_count %>
+    <% end %>
     <br>
+    
 <% end %>
 
+<h2>NEW</h2>
+<% @post4s2.each do |post| %>
 
+    <%= post.user.email.split("@").first %>
+
+    <% if(post.title1.present?) %>
+    <h3><%= post.id %> : <%= post.title1 %></h3>
+    <a href="/posts/add1/<%= post.id %>">add</a>
+    <% end %>
+    
+    <% if(post.title2.present?) %>
+    <h3><%= post.id %> : <%= post.title2 %></h3>
+    <a href="/posts/add2/<%= post.id %>">add</a>
+    <% end %>
+    
+    <% if(post.title3.present?) %>
+    <h3><%= post.id %> : <%= post.title3 %></h3>
+    <a href="/posts/add3/<%= post.id %>">add</a>
+    <% end %>
+    
+    <% if(post.title4.present?) %>
+    <h3><%= post.id %> : <%= post.title4 %></h3>
+    <a href="/posts/add4/<%= post.id %>">add</a>
+    <% end %>
+    
+    <% if(post.title5.present?) %>
+    <h3><%= post.id %> : <%= post.title5 %></h3>
+    <a href="/posts/add5/<%= post.id %>">add</a>
+    <% end %>
+    <br>
+    ###########################################
+    <a href="/posts/show4/<%= post.id %>">이거 볼래애ㅐㅐ애ㅐㅐㅐㅐㅐ</a>
+    ###########################################
+    
+    <% if current_user.is_like?(post) %>
+    
+    <%= link_to "/posts/#{post.id}/like", method: "post" do %>좋아요 해제 <% end %>
+    
+    <% else %>
+    
+    <%= link_to "/posts/#{post.id}/like", method: "post" do %>좋아요 <% end %>
+    
+    <% end %>
+
+    
+    <%if post.likes_count ==nil %> 0
+    <%else %> <%= post.likes_count %>
+    <% end %>
+    <br>
+    
+<% end %>

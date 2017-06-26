@@ -2,14 +2,39 @@
 
 
 
->
+
 
 <% @post4s.each do |post| %>
     
     <h3>
             <%= post.user.email.split("@").first %>
-                                   
-             <%= post.title1 %> - <%= post.title2 %> - <%= post.title3 %> - <%= post.title4 %> - <%= post.title5 %> 
+            
+            <% if(post.title1.present?) %>                       
+                <%= post.title1 %>
+            <% end %>
+            <% if(post.title2.present?) %>                       
+                
+                <%= post.title2 %>
+            <% end %>
+            <% if(post.title3.present?) %>                       
+                <br>
+                <%= post.memo2 %>
+                <br>
+                <%= post.title3 %>
+            <% end %>
+            <% if(post.title4.present?) %>                       
+                <br>
+                <%= post.memo3 %>
+                <br>
+                <%= post.title4 %>
+            <% end %>
+            <% if(post.title5.present?) %>                       
+                <br>
+                <%= post.memo4 %>
+                <br>
+                <%= post.title5 %>
+            <% end %>
+            
     
             <a href="/posts/show3/<%= post.id %>">이게시물의show3로</a>
 
