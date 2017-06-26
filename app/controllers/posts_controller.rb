@@ -53,6 +53,7 @@ class PostsController < ApplicationController
     
     
     def index2
+    
        @post2s = Post2.where(user_id: current_user)
        @post3s = Post3.where(user_id: current_user)
     end
