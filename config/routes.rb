@@ -16,13 +16,22 @@ Rails.application.routes.draw do
   get 'posts/index3'
   get '/posts/create3/:post2_id' => 'posts#create3'
   get '/posts/destroy3/:post3_id' => 'posts#destroy3'
-  #get 'posts/show3/??????????' => 'posts#show'
+  get 'posts/show3/:post4_id' => 'posts#show3'
+  
+  
   
   
   get 'posts/index4'
+  get '/posts/show4/:post4_id' => 'posts#show4'
   get '/posts/create4/:post3_id' => 'posts#create4'
+  
+  get '/posts/add1/:post4_id' => 'posts#add1'
+  get '/posts/add2/:post4_id' => 'posts#add2'
+  get '/posts/add3/:post4_id' => 'posts#add3'
+  get '/posts/add4/:post4_id' => 'posts#add4'
+  get '/posts/add5/:post4_id' => 'posts#add5'
     
   root 'posts#main'
-
+  get 'posts/main' => 'posts#main'
  
 end

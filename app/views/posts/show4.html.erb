@@ -1,1 +1,49 @@
-<h2>show4</h2>
+<h1>show4</h1>
+
+<h2><%= @post4.user.email.split("@").first %>의 여행경로입니다</h2>
+
+<% if(@post4.title1.present?) %>
+    <p>
+        제목 : <%= @post4.title1 %>
+        장소 : <%= @post4.place1 %>
+        사진 : <%= @post4.image1 %><br>
+    </p>
+<% end %>
+
+<% if(@post4.title2.present?) %>
+    <p>
+        1과2연결 : <%= @post4.memo1 %><br><br>
+        제목 : <%= @post4.title2 %>
+        장소 : <%= @post4.place2 %>
+        사진 : <%= @post4.image2 %>
+    </p>
+<% end %>
+
+<% if(@post4.title3.present?) %>
+    <p>
+        2와3연결 : <%= @post4.memo2 %><br><br>
+        제목 : <%= @post4.title3 %>
+        장소 : <%= @post4.place3 %>
+        사진 : <%= @post4.image3 %>
+    </p>
+<% end %>
+
+<% if(@post4.title4.present?) %>
+    <p>
+        3과4연결 : <%= @post4.memo3 %><br><br>
+        제목 : <%= @post4.title4 %>
+        장소 : <%= @post4.place4 %>
+        사진 : <%= @post4.image4 %>
+    </p>
+<% end %>
+
+<% if(@post4.title5.present?) %>
+    <p>
+        4와5연결 : <%= @post4.memo4 %><br><br>
+        제목 : <%= @post4.title5 %>
+        장소 : <%= @post4.place5 %>
+        사진 : <%= @post4.image5 %>
+    </p>
+<% end %>
+
+

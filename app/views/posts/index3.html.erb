@@ -1,2 +1,21 @@
 <h2>index3</h2>
-<a href="/posts/show3/????">show3로//id안먹어서아직안들어간다</a>
+
+
+
+>
+
+<% @post4s.each do |post| %>
+    
+    <h3>
+            <%= post.user.email.split("@").first %>
+                                   
+             <%= post.title1 %> - <%= post.title2 %> - <%= post.title3 %> - <%= post.title4 %> - <%= post.title5 %> 
+    
+            <a href="/posts/show3/<%= post.id %>">이게시물의show3로</a>
+
+    </h3>
+
+    
+        
+<% end %>
+

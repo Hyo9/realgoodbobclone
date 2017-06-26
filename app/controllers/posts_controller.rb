@@ -30,6 +30,8 @@ class PostsController < ApplicationController
     end
     
     
+    
+    
 #####################  2  ########################################    
 
     def create2
@@ -50,27 +52,23 @@ class PostsController < ApplicationController
     
     
     def index2
-       @post2s = Post2.all 
-       @post3s = Post3.all
+       @post2s = Post2.where(user_id: current_user)
+       @post3s = Post3.where(user_id: current_user)
     end
     
 
 
 #####################  3  ########################################
     def index3
-     #####???######
+           @post4s = Post4.where(user_id: current_user)
     end
 
 
 
     def create3
-          
         
-          if(Post3.all[0]==nil) then @post3=Post3.new
-                                    @post3.user_id = current_user.id 
-       else  @post3 = Post3.all
-             @post3 = @post3[0]
-         end 
+         @post3 = Post3.find_or_create_by(user_id: current_user.id)
+         
          
        if (@post3.title1==nil) then @post3.title1 = Post2.find(params[:post2_id]).title 
        elsif (@post3.title2==nil) then  @post3.title2 = Post2.find(params[:post2_id]).title
@@ -103,7 +101,7 @@ class PostsController < ApplicationController
     
     
     def show3
-    #####???######
+          @post4 = Post4.find(params[:post4_id])
     end
     
     
@@ -142,12 +140,96 @@ class PostsController < ApplicationController
     
     
     def index4  
-    #####???######
+        @post4s = Post4.all
     end
     
     def show4
-    #####???######
+        @post4 = Post4.find(params[:post4_id])
     end
 
+    def add1
+        @post4 = Post4.find(params[:post4_id])
+        @post2 = Post2.new
+        @posts = Post.all
+        
+        @posts.each do |post|
+            if(@post4.title1==post.title)
+                @post2.title = post.title
+                @post2.place = post.place
+                @post2.image = post.image
+                @post2.content = post.content
+                @post2.save
+            end
+        end
+      redirect_to "/posts/index4"
+    end
+    
+    def add2
+        @post4 = Post4.find(params[:post4_id])
+        @post2 = Post2.new
+        @posts = Post.all
+        
+        @posts.each do |post|
+            if(@post4.title2==post.title)
+                @post2.title = post.title
+                @post2.place = post.place
+                @post2.image = post.image
+                @post2.content = post.content
+                @post2.save
+            end
+        end
+      redirect_to "/posts/index4"
+    end
+    
+    def add3
+        @post4 = Post4.find(params[:post4_id])
+        @post2 = Post2.new
+        @posts = Post.all
+        
+        @posts.each do |post|
+            if(@post4.title3==post.title)
+                @post2.title = post.title
+                @post2.place = post.place
+                @post2.image = post.image
+                @post2.content = post.content
+                @post2.save
+            end
+        end
+      redirect_to "/posts/index4"
+    end
+    
+    def add4
+        @post4 = Post4.find(params[:post4_id])
+        @post2 = Post2.new
+        @posts = Post.all
+        
+        @posts.each do |post|
+            if(@post4.title4==post.title)
+                @post2.title = post.title
+                @post2.place = post.place
+                @post2.image = post.image
+                @post2.content = post.content
+                @post2.save
+            end
+        end
+      redirect_to "/posts/index4"
+    end
+    
+    def add5
+        @post4 = Post4.find(params[:post4_id])
+        @post2 = Post2.new
+        @posts = Post.all
+        
+        @posts.each do |post|
+            if(@post4.title5==post.title)
+                @post2.title = post.title
+                @post2.place = post.place
+                @post2.image = post.image
+                @post2.content = post.content
+                @post2.save
+            end
+        end
+      redirect_to "/posts/index4"
+    end
 
 end
