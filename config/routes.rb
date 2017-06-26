@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   get '/posts/new' => 'posts#new'
   get '/posts/create' => 'posts#create'
   get 'posts/show/:post_id' => 'posts#show'

@@ -19,8 +19,9 @@
 
 /////////////////////////////////////////////////////////////////////////////////
 <h2>여기가 db333이야!</h2>
-<% @post3s.each do |post3| %>
 
+<% @post3s.each do |post3| %>
+     <div><%= post3.user.email.split("@").first %></div>
       <div>id<%= post3.id %>:t<%= post3.title1 %> </div>
       <div><%= post3.id %>:c<%=post3.image1 %></div>
       <div><%= post3.id %>:t<%= post3.title2 %> </div>

@@ -36,6 +36,7 @@ class PostsController < ApplicationController
        #버튼만 누르면 정보를 받아와 db2에 저장되게 하는 액션
       
        @post2 = Post2.new
+       @post2.user_id = current_user.id 
        @post2.title = Post.find(params[:post_id]).title
        @post2.place = Post.find(params[:post_id]).place
        @post2.image = Post.find(params[:post_id]).image
@@ -66,6 +67,7 @@ class PostsController < ApplicationController
           
         
           if(Post3.all[0]==nil) then @post3=Post3.new
+                                    @post3.user_id = current_user.id 
        else  @post3 = Post3.all
              @post3 = @post3[0]
          end 
@@ -119,6 +121,7 @@ class PostsController < ApplicationController
       def create4
       
        @post4 = Post4.new
+       @post4.user_id = current_user.id 
        @post4.title1 = Post3.find(params[:post3_id]).title1
        @post4.image1 = Post3.find(params[:post3_id]).image1
        @post4.title2 = Post3.find(params[:post3_id]).title2
