@@ -1,0 +1,12 @@
+내용을 입력할 화면입니다.
+<% @posts.each do |post| %>
+    <h3><a href="/posts/show/<%= post.id %>"><%= post.id %> :
+        <%= post.title %></a></h3>
+<% end %>
+
+
+
+
+<a href="/posts/new/"> 마스터만 new로 갈수잇도록해야대!</a>
+<a href="/posts/index2/">내계획짜는 index2로</a>
+ 

@@ -1,0 +1,13 @@
+<h1><%= @post.id %> 번 포스트 입니다</h1>
+<h2>제목 : <%= @post.title %> </h2>
+<h2>장소 : <%= @post.place %> </h2>
+<h2>사진 : <%= @post.image %> </h2>
+<h2>설명 : <%= @post.content %> </h2>
+
+<form action="/posts/create2/<%= @post.id %>">
+    <p>이버튼을 누르면 개인 db로 넘어가!</p>
+    <input type="submit">
+</form>
+---------------------------------------------------
+
+<a href="/posts/index4/">여행지목록보는index로</a>

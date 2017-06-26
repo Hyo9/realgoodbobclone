@@ -1,0 +1,54 @@
+<h2>나의계획</h2>
+
+<h3><a href="/posts/index3/">내가짯던계획들보는 index3로</a></h3>
+
+<% @post2s.each do |post| %>
+      <h3>db2아이디 <%= post.id %> : <%= post.title %> </h3>
+      <h3>db2아이디 <%= post.id %> : <%= post.place %> </h3>
+      <h3>db2아이디 <%= post.id %> : <%= post.image %> </h3>
+
+ 
+  <form action="/posts/create3/<%= post.id %>">
+
+    <p>이버튼을 누르면 개인 db33333333로 넘어가!</p>
+    <input type="submit"> 
+  </form>
+
+<% end %>
+
+
+/////////////////////////////////////////////////////////////////////////////////
+<h2>여기가 db333이야!</h2>
+<% @post3s.each do |post3| %>
+
+      <div>id<%= post3.id %>:t<%= post3.title1 %> </div>
+      <div><%= post3.id %>:c<%=post3.image1 %></div>
+      <div><%= post3.id %>:t<%= post3.title2 %> </div>
+      <div><%= post3.id %>:c<%=post3.image2 %></div>
+       <div><%= post3.id %>:t<%= post3.title3 %> </div>
+      <div><%= post3.id %>:c<%=post3.image3 %></div>
+      <div><%= post3.id %>:t<%= post3.title4 %> </div>
+      <div><%= post3.id %>:c<%=post3.image4 %></div>
+       <div><%= post3.id %>:t<%= post3.title5 %> </div>
+      <div><%= post3.id %>:c<%=post3.image5 %></div>
+     
+ <% end %>
+<% @post3s.each do |post3| %>
+
+    <h3><a href ="/posts/destroy3/<%= post3.id %>" data-confirm="진짜로삭제할거얌?후ㅜ">삭제</a> </h3>
+
+ <% end %>
+///////////////////////////////////////////////////////////////////////////////
+  
+  <% @post3s.each do |post3| %>
+
+    
+  <form action="/posts/create4/<%= post3.id %>">
+
+    <p>이버튼을 누르면 개인 db4로 넘어가!</p>
+    <input type="submit" data-confirm="진짜로넘어갈거얌?후ㅜ"> 
+  </form>
+
+ <% end %>
+
+
