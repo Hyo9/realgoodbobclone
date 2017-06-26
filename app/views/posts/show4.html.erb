@@ -47,3 +47,14 @@
 <% end %>
 
 
+<h2>photos</h2>
+<% @post4.replies.each do |reply| %>
+<p>
+  <% if reply.image.url %>
+  <p><%= reply.title %></p>
+  <img src="<%= reply.image.url %>"/>
+  <% else %>
+  <span>no image</span>
+  <% end %>
+</p>
+<% end %>

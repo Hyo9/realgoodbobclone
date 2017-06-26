@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/posts/create2/:post_id' => 'posts#create2'
   get 'posts/index2'
   
+  get '/posts/destroy2/:post2_id' => 'posts#destroy2'
   
   
   get 'posts/index3'
@@ -35,5 +36,9 @@ Rails.application.routes.draw do
     
   root 'posts#main'
   get 'posts/main' => 'posts#main'
+  
+  resources :post4s do
+    resources :replies
+  end
  
 end

@@ -58,7 +58,17 @@ class PostsController < ApplicationController
        @post3s = Post3.where(user_id: current_user)
     end
     
+    
+    
 
+    
+    def destroy2
+        @post2 = Post2.find(params[:post2_id])
+        @post2.destroy #???걍3붙ㅇ야대나
+       redirect_to "/posts/index2"
+        
+    
+    end
 
 #####################  3  ########################################
     def index3
@@ -136,7 +146,7 @@ class PostsController < ApplicationController
        
        
        @post4.save
-       redirect_to "/posts/index2"
+       redirect_to "/posts/index3"
     
     
     end
@@ -150,6 +160,36 @@ class PostsController < ApplicationController
     def show4
         @post4 = Post4.find(params[:post4_id])
     end
+
+    def memo1
+        @post4 = Post4.find(params[:post4_id])
+        @post4.memo1 = params[:input1]
+        @post4.save
+        redirect_to "/posts/index3"
+    end
+    
+    def memo2
+        @post4 = Post4.find(params[:post4_id])
+        @post4.memo2 = params[:input2]
+        @post4.save
+        redirect_to "/posts/index3"
+    end
+    
+    def memo3
+        @post4 = Post4.find(params[:post4_id])
+        @post4.memo3 = params[:input3]
+        @post4.save
+        redirect_to "/posts/index3"
+    end
+    
+    def memo4
+        @post4 = Post4.find(params[:post4_id])
+        @post4.memo4 = params[:input4]
+        @post4.save
+        redirect_to "/posts/index3"
+    end
+    
+
 
     def add1
         @post4 = Post4.find(params[:post4_id])
@@ -165,7 +205,7 @@ class PostsController < ApplicationController
                 @post2.save
             end
         end
-      redirect_to "/posts/index4"
+      redirect_to "/posts/index2"
     end
     
     def add2
@@ -182,7 +222,7 @@ class PostsController < ApplicationController
                 @post2.save
             end
         end
-      redirect_to "/posts/index4"
+      redirect_to "/posts/index2"
     end
     
     def add3
@@ -199,7 +239,7 @@ class PostsController < ApplicationController
                 @post2.save
             end
         end
-      redirect_to "/posts/index4"
+      redirect_to "/posts/index2"
     end
     
     def add4
@@ -216,7 +256,7 @@ class PostsController < ApplicationController
                 @post2.save
             end
         end
-      redirect_to "/posts/index4"
+      redirect_to "/posts/index2"
     end
     
     def add5
@@ -233,7 +273,7 @@ class PostsController < ApplicationController
                 @post2.save
             end
         end
-      redirect_to "/posts/index4"
+      redirect_to "/posts/index2"
     end
 
 end

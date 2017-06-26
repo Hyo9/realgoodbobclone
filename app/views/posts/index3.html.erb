@@ -6,39 +6,60 @@
 
 <% @post4s.each do |post| %>
     
-    <h3>
-            <%= post.user.email.split("@").first %>
-            
+            <%= post.user.email.split("@").first %><br>
             <% if(post.title1.present?) %>                       
-                <%= post.title1 %>
+                <h3><%= post.title1 %></h3>
             <% end %>
             <% if(post.title2.present?) %>                       
-                
-                <%= post.title2 %>
+                <%= post.memo1 %>
+                <form action="/posts/memo1/<%= post.id %>">
+                    <p>경로</p>
+                    <input type="text" name="input1">
+                    <p>제출</p>
+                    <input type="submit">
+                </form>
+                <h3><%= post.title2 %></h3>
             <% end %>
             <% if(post.title3.present?) %>                       
                 <br>
                 <%= post.memo2 %>
+                <form action="/posts/memo2/<%= post.id %>">
+                    <p>경로</p>
+                    <input type="text" name="input2">
+                    <p>제출</p>
+                    <input type="submit">
+                </form>
                 <br>
-                <%= post.title3 %>
+                <h3><%= post.title3 %></h3>
             <% end %>
             <% if(post.title4.present?) %>                       
                 <br>
                 <%= post.memo3 %>
+                <form action="/posts/memo3/<%= post.id %>">
+                    <p>경로</p>
+                    <input type="text" name="input3">
+                    <p>제출</p>
+                    <input type="submit">
+                </form>
                 <br>
-                <%= post.title4 %>
+                <h3><%= post.title4 %></h3>
             <% end %>
             <% if(post.title5.present?) %>                       
                 <br>
                 <%= post.memo4 %>
+                <form action="/posts/memo4/<%= post.id %>">
+                    <p>경로</p>
+                    <input type="text" name="input4">
+                    <p>제출</p>
+                    <input type="submit">
+                </form>
                 <br>
-                <%= post.title5 %>
+                <h3><%= post.title5 %></h3>
             <% end %>
             
     
             <a href="/posts/show3/<%= post.id %>">이게시물의show3로</a>
 
-    </h3>
 
     
         

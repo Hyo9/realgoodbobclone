@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626105001) do
+ActiveRecord::Schema.define(version: 20170626123400) do
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
@@ -100,6 +100,16 @@ ActiveRecord::Schema.define(version: 20170626105001) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "replies", force: :cascade do |t|
+    t.string   "title"
+    t.string   "image"
+    t.integer  "post4_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "replies", ["post4_id"], name: "index_replies_on_post4_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
