@@ -51,6 +51,21 @@ class PostsController < ApplicationController
         
     end    
     
+        def create22
+       #버튼만 누르면 정보를 받아와 db2에 저장되게 하는 액션
+      
+       @post2 = Post2.new
+       @post2.user_id = current_user.id 
+       @post2.title = Post.find(params[:post_id]).title
+       @post2.place = Post.find(params[:post_id]).place
+       @post2.image = Post.find(params[:post_id]).image
+       @post2.content = Post.find(params[:post_id]).content
+       
+       
+       @post2.save
+       redirect_to "/posts/index2"
+        
+    end 
     
     def index2
     
@@ -147,6 +162,28 @@ class PostsController < ApplicationController
        
        @post4.save
        redirect_to "/posts/index3"
+    
+    
+    end
+    
+     def create44
+      
+       @post4 = Post4.new
+       @post4.user_id = current_user.id 
+       @post4.title1 = Post3.find(params[:post3_id]).title1
+       @post4.image1 = Post3.find(params[:post3_id]).image1
+       @post4.title2 = Post3.find(params[:post3_id]).title2
+       @post4.image2 = Post3.find(params[:post3_id]).image2
+       @post4.title3 = Post3.find(params[:post3_id]).title3
+       @post4.image3 = Post3.find(params[:post3_id]).image3
+       @post4.title4 = Post3.find(params[:post3_id]).title4
+       @post4.image4 = Post3.find(params[:post3_id]).image4
+       @post4.title5 = Post3.find(params[:post3_id]).title5
+       @post4.image5 = Post3.find(params[:post3_id]).image5
+       
+       
+       @post4.save
+       redirect_to "/posts/index2"
     
     
     end

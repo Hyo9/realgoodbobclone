@@ -35,37 +35,36 @@
     <a href="/posts/add5/<%= @post4.id %>">add</a>
     <% end %>
 
+    <h2>upload image</h2>
+    <div class="imagegogo">
+    <%= form_for [@post4, @post4.replies.build] do |f| %>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title%>
+    </p>
+    <p>
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+    <% end %>
+    </div>
 
 
 
-<h3>이미지같은거 불러오고싶으면 @post4.image2이렇게에ㅔㅇ</h3>
-<h2>photos</h2>
-<% @post4.replies.each do |reply| %>
-<p>
-  <% if reply.image.url %>
-  <p><%= reply.title %></p>
-  <img src="<%= reply.image.url %>"/>
-  <% else %>
-  <span>no image</span>
+<div class="row">
+  <% @post4.replies.each do |reply| %>
+    <div class="col-xs-6 col-md-3">
+      <% if reply.image.url %>
+      <p class="thumbnail text-center" style="padding-bottom: 10px; padding-top: 10px;">
+      <%= reply.title %>
+      <img src="<%= reply.image.url %>" style="width: 242px; height: 200px; margin-top: 10px;"/>
+      <% end %>
+      </p>
+    </div>
   <% end %>
-</p>
-<% end %>
-
-<h2>upload image</h2>
-<div class="imagegogo">
-<%= form_for [@post4, @post4.replies.build] do |f| %>
-<p>
-  <%= f.label :title %><br>
-  <%= f.text_field :title%>
-</p>
-<p>
-  <%= f.label :image %><br>
-  <%= f.file_field :image %>
-</p>
-<p>
-  <%= f.submit %>
-</p>
-<% end %>
 </div>
 
 

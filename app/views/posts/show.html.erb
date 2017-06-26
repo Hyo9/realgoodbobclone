@@ -4,10 +4,31 @@
 <h2>사진 : <%= @post.image %> </h2>
 <h2>설명 : <%= @post.content %> </h2>
 
-<form action="/posts/create2/<%= @post.id %>">
-    <p>이버튼을 누르면 개인 db로 넘어가!</p>
-    <input type="submit" value="제출">
-</form>
+<button class="btn btn-default" data-target="#layerpop" data-toggle="modal" >제출</button><br/>
+<div class="modal fade" id="layerpop" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- header -->
+      <div class="modal-header">
+        <!-- 닫기(x) 버튼 -->
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <!-- header title -->
+        <h4 class="modal-title">Header</h4>
+      </div>
+      <!-- body -->
+      <div class="modal-body">
+            Body
+      </div>
+      <!-- Footer -->
+      <div class="modal-footer">
+        Footer
+        <a class="btn btn-default" href="/posts/create2/<%= @post.id %>" role="button">모든장소보기</a>
+        <a class="btn btn-default" href="/posts/create22/<%= @post.id %>" role="button">내계획보기</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 ---------------------------------------------------
 
 <a href="/posts/index">여행지목록보는index로</a>

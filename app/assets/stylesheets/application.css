@@ -1,18 +1,13 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+
+.font1{
+    font-family: 'Jeju Gothic', serif;
+}
+
+
+
+
 body{
     margin: 0;
 }
@@ -31,8 +26,8 @@ nav{
 .navbar-brand img{
     margin-top: 0;
     padding: 0;
-    height: 100px;
-    margin-left: 100px;
+    height: 97px;
+    margin-left: 150px;
 }
 
 .navbar-brand{
@@ -42,4 +37,37 @@ nav{
 
 .navbar-header{
     background-color: rgb(136, 176, 75);
+}
+
+li{
+    color: white;
+    background-color: none;
+    text-decoration: none;
+}
+
+.nav-link:hover{
+    color: white;
+    background-color: none;
+    text-decoration: none;
+}
+.nav-link:link{
+    color: white;
+    background-color: none;
+    text-decoration: none;
+}
+.nav-link:active{
+    color: white;
+    background-color: none;
+    text-decoration: none;
+}
+.nav-link:visited{
+    color: white;
+    background-color: none;
+    text-decoration: none;
+}
+
+.nav-link{
+    color: white;
+    background-color: none;
+    text-decoration: none;    
 }

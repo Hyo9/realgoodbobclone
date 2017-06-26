@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post 'posts/:post_id/like' => 'likes#like_toggle'
   
   get '/posts/create2/:post_id' => 'posts#create2'
+  get '/posts/create22/:post_id' => 'posts#create22'
   get 'posts/index2'
   
   get '/posts/destroy2/:post2_id' => 'posts#destroy2'
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
   get 'posts/index4'
   get '/posts/show4/:post4_id' => 'posts#show4'
   get '/posts/create4/:post3_id' => 'posts#create4'
+  get '/posts/create44/:post3_id' => 'posts#create44'
   
   get '/posts/add1/:post4_id' => 'posts#add1'
   get '/posts/add2/:post4_id' => 'posts#add2'
