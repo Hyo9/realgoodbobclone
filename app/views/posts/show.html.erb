@@ -1,10 +1,25 @@
-<h1><%= @post.id %> 번 포스트 입니다</h1>
-<h2>제목 : <%= @post.title %> </h2>
-<h2>장소 : <%= @post.place %> </h2>
-<h2>사진 : <%= @post.image %> </h2>
-<h2>설명 : <%= @post.content %> </h2>
 
-<button class="btn btn-default" data-target="#layerpop" data-toggle="modal" >제출</button><br/>
+
+  <div class="container" style="padding: 10px;">
+<body>
+
+<div style="height: 480px; background-color: black; margin-top: 3px;">
+    <div style="float: left; background-color: black; height: 480px; padding-top: 150px; padding-left: 150px;">
+        <h1 style="color: white;" class="text-center"><%=@post.place %></h1>
+        <h1 style="color: white;" class="text-center"><%=@post.title %></h1>
+    </div>
+    <div style="float: right; width: 480px; height: 480px;">
+        <%=image_tag("#{@post.image}.png", :class => 'show-img') %>
+    </div>
+</div>
+
+<hr>
+ <%= @post.title %> 
+ <%= @post.content %> 
+ 
+ <hr>
+
+<button class="btn btn-default" data-target="#layerpop" data-toggle="modal" >내 계획에 추가할래요</button>
 <div class="modal fade" id="layerpop" >
   <div class="modal-dialog">
     <div class="modal-content">
@@ -17,18 +32,20 @@
       </div>
       <!-- body -->
       <div class="modal-body">
-            Body
+        내 계획에 추가되었어요! 구경갈래요?
       </div>
       <!-- Footer -->
       <div class="modal-footer">
-        Footer
-        <a class="btn btn-default" href="/posts/create2/<%= @post.id %>" role="button">모든장소보기</a>
-        <a class="btn btn-default" href="/posts/create22/<%= @post.id %>" role="button">내계획보기</a>
+        <a class="btn btn-default" href="/posts/create2/<%= @post.id %>" role="button">모든 노드 볼래요</a>
+        <a class="btn btn-default" href="/posts/create22/<%= @post.id %>" role="button">내 계획 볼래요</a>
       </div>
     </div>
   </div>
 </div>
 
----------------------------------------------------
+<a class="btn btn-default" href="/posts/index" role="button">List로 갈래요</a>
 
-<a href="/posts/index">여행지목록보는index로</a>
+</div>
+
+</div>
+</body>

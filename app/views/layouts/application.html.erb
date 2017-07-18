@@ -2,7 +2,7 @@
 <html>
 <head>
   <link href='http://fonts.googleapis.com/earlyaccess/jejugothic.css' rel='stylesheet' type='text/css'>
-  <title>Workspace</title>
+  <title>NODE TRIP</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,43 +12,45 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/scss" href="posts.scss">
   
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
   
-  <nav class="navbar navbar-default nav-background" style="background: rgb(136, 176, 75); margin-top: 0; padding-top: 0;">
-    <ul style="height: 100px; margin-top: 0; padding-top: 0;" class="nav navbar navbar-brand">
-        <li><%= image_tag("logo.jpg") %></li>
+  <nav class="navbar navbar-default nav-background nav-fixed" style="background: rgb(136, 176, 75); margin-top: 0; padding-top: 0;">
+    <ul style="height: 28px; margin-top: 0; padding-top: 0;" class="nav navbar navbar-brand">
+        <a href="/posts/main"><%= image_tag("logo.jpg") %></a>
     </ul>
-    <ul class="nav navbar navbar-right" style="margin-right: 150px; height: 100px; margin-top: 50px;">
+    <ul class="nav navbar navbar-right" style="margin-right: 150px; height: 28px; margin-top: 50px; margin-bottom: 0;">
+      
+      <p style="font-size: 20px;">
       <% if current_user %>
-      <p><%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      <%= link_to 'Logout' ,destroy_user_session_path, :class => 'nav_logins', method: :delete %>
       <% else %>
-      <%= link_to 'Register', new_user_registration_path %>
-      <%= link_to 'Login', new_user_session_path %></p>
+      <%= link_to 'Register', new_user_registration_path , :class => 'nav_logins' %> &nbsp;&nbsp;
+      <%= link_to 'Login', new_user_session_path , :class => 'nav_logins'%></p>
       <% end %>
     </ul>
-    <ul class="nav navbar navbar-right" style="margin-right: 150px; height: 100px; margin-top: 50px;">
-      <p class="nav-link">
-        <%= link_to 'MAIN', "/posts/main" %>
-        <%= link_to 'ALL', "/posts/index4" %>
-        <%= link_to 'MYPAGE', "/posts/index2" %>
+    <ul class="nav navbar navbar-right" style="margin-right: 150px; height: 28px; margin-top: 52px;">
+      <p class="nav-link" style="font-size: 20px; color: white;">
+        <%= link_to 'MAIN', "/posts/main" , :class => 'nav_links' %> &nbsp;&nbsp;
+        <%= link_to 'LIST', "/posts/index" , :class => 'nav_links' %> &nbsp;&nbsp;
+        <%= link_to 'ALL', "/posts/index4" , :class => 'nav_links' %> &nbsp;&nbsp;
+        <%= link_to 'MYPAGE', "/posts/index2" , :class => 'nav_links' %>
       </p>
     </ul>
   </nav>
-  <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
-    <% if current_user %>
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-    <% else %>
-    <%= link_to 'Register', new_user_registration_path %>
-    <%= link_to 'Login', new_user_session_path %>
-    <% end %>
-    <br>
+  
     <%= yield %>
-  </div>
+  
+  
+
+  
 </body>
 </html>
 

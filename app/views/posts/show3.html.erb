@@ -1,43 +1,17 @@
-<h2>show3</h2>
+ <div class="container">
 
+<h2>나의 노드 트립을 살펴 볼까요?</h2>
 
-
-<h1><%= @post4.id %> 번 포스트 입니다</h1>
-
-<h2>경로:</h2>
-
-    <% if(@post4.title1.present?) %>
-    <h3><%= @post4.title1 %></h3>
-    <a href="/posts/add1/<%= @post4.id %>">add</a><br>
-    <% end %>
-    
-    <% if(@post4.title2.present?) %>
-    <%= @post4.memo1 %><br>
-    <h3><%= @post4.title2 %></h3>
-    <a href="/posts/add2/<%= @post4.id %>">add</a><br>
-    <% end %>
-    
-    <% if(@post4.title3.present?) %>
-    <%= @post4.memo2 %><br>
-    <h3><%= @post4.title3 %></h3>
-    <a href="/posts/add3/<%= @post4.id %>">add</a><br>
-    <% end %>
-    
-    <% if(@post4.title4.present?) %>
-    <%= @post4.memo3 %><br>
-    <h3><%= @post4.title4 %></h3>
-    <a href="/posts/add4/<%= @post4.id %>">add</a><br>
-    <% end %>
-    
-    <% if(@post4.title5.present?) %>
-    <%= @post4.memo4 %><br>
-    <h3><%= @post4.title5 %></h3>
-    <a href="/posts/add5/<%= @post4.id %>">add</a>
-    <% end %>
-
-    <h2>upload image</h2>
+<% post= @post4 %>
+      
+     <p class="root">
+     <% if  post.title1 %><%=image_tag("#{post.image1}.png", :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %><% if  post.title2 %><%=image_tag("node.png", :class => 'node') %><%=image_tag("#{post.image2}.png",  :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %><% if  post.title3 %><%=image_tag("node.png", :class => 'node') %><%=image_tag("#{post.image3}.png",  :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %><% if  post.title4 %><%=image_tag("node.png", :class => 'node') %><%=image_tag("#{post.image4}.png",  :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %><% if  post.title5 %><%=image_tag("node.png", :class => 'node') %><%=image_tag("#{post.image5}.png",  :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %>
+     </p>
+     
+   
+    <h2>여행사진</h2>
     <div class="imagegogo">
-    <%= form_for [@post4, @post4.replies.build] do |f| %>
+    <%= form_for [post, post.replies.build] do |f| %>
     <p>
       <%= f.label :title %><br>
       <%= f.text_field :title%>
@@ -52,10 +26,13 @@
     <% end %>
     </div>
 
+   
 
+
+<% post= @post4 %>
 
 <div class="row">
-  <% @post4.replies.each do |reply| %>
+  <% post.replies.each do |reply| %>
     <div class="col-xs-6 col-md-3">
       <% if reply.image.url %>
       <p class="thumbnail text-center" style="padding-bottom: 10px; padding-top: 10px;">
@@ -68,8 +45,11 @@
 </div>
 
 
+<!--<a class="btn btn-default" href="#" role="button">Link</a>-->
+<!--<button class="btn btn-default" type="submit">Button</button>-->
+<!--<input class="btn btn-default" type="button" value="Input">-->
+<!--<input class="btn btn-default" type="submit" value="Submit">-->
 
+<a class="btn btn-default" href="/posts/index4/">다른사람 노드트립도 볼래요</a>
 
----------------------------------------------------
-
-<a href="/posts/index4/">여행지목록보는index로</a>
+</div>

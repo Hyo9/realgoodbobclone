@@ -43,4 +43,6 @@ Rails.application.routes.draw do
     resources :replies
   end
  
+ get 'posts/please'
+ 
 end

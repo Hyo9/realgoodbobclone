@@ -91,6 +91,35 @@ class PostsController < ApplicationController
     end
 
 
+    def memo1
+        @post4 = Post4.find(params[:post4_id])
+        @post4.memo1 = params[:input1]
+        @post4.save
+        redirect_to "/posts/index3"
+    end
+    
+    def memo2
+        @post4 = Post4.find(params[:post4_id])
+        @post4.memo2 = params[:input2]
+        @post4.save
+        redirect_to "/posts/index3"
+    end
+    
+    def memo3
+        @post4 = Post4.find(params[:post4_id])
+        @post4.memo3 = params[:input3]
+        @post4.save
+        redirect_to "/posts/index3"
+    end
+    
+    def memo4
+        @post4 = Post4.find(params[:post4_id])
+        @post4.memo4 = params[:input4]
+        @post4.save
+        redirect_to "/posts/index3"
+    end
+    
+
 
     def create3
         
@@ -128,7 +157,7 @@ class PostsController < ApplicationController
     
     
     def show3
-          @post4 = Post4.find(params[:post4_id])
+           @post4 = Post4.find(params[:post4_id])
     end
     
 
@@ -198,34 +227,6 @@ class PostsController < ApplicationController
         @post4 = Post4.find(params[:post4_id])
     end
 
-    def memo1
-        @post4 = Post4.find(params[:post4_id])
-        @post4.memo1 = params[:input1]
-        @post4.save
-        redirect_to "/posts/index3"
-    end
-    
-    def memo2
-        @post4 = Post4.find(params[:post4_id])
-        @post4.memo2 = params[:input2]
-        @post4.save
-        redirect_to "/posts/index3"
-    end
-    
-    def memo3
-        @post4 = Post4.find(params[:post4_id])
-        @post4.memo3 = params[:input3]
-        @post4.save
-        redirect_to "/posts/index3"
-    end
-    
-    def memo4
-        @post4 = Post4.find(params[:post4_id])
-        @post4.memo4 = params[:input4]
-        @post4.save
-        redirect_to "/posts/index3"
-    end
-    
 
 
     def add1
@@ -313,4 +314,9 @@ class PostsController < ApplicationController
       redirect_to "/posts/index2"
     end
 
+end
+
+
+def please
+    
 end

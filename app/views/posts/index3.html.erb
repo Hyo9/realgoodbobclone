@@ -1,46 +1,29 @@
-<h2>index3</h2>
 
-
-
+<div class="container"  style="padding-bottom: 20px;">
+<h2>내 노드트립</h2>
 
 
 <% @post4s.each do |post| %>
-    
-    <h3>
-            <%= post.user.email.split("@").first %>
-            
-            <% if(post.title1.present?) %>                       
-                <%= post.title1 %>
-            <% end %>
-            <% if(post.title2.present?) %>                       
-                
-                <%= post.title2 %>
-            <% end %>
-            <% if(post.title3.present?) %>                       
-                <br>
-                <%= post.memo2 %>
-                <br>
-                <%= post.title3 %>
-            <% end %>
-            <% if(post.title4.present?) %>                       
-                <br>
-                <%= post.memo3 %>
-                <br>
-                <%= post.title4 %>
-            <% end %>
-            <% if(post.title5.present?) %>                       
-                <br>
-                <%= post.memo4 %>
-                <br>
-                <%= post.title5 %>
-            <% end %>
-            
-    
-            <a href="/posts/show3/<%= post.id %>">이게시물의show3로</a>
 
-    </h3>
+     <p class="root">
+     <% if  post.title1 %><%=image_tag("#{post.image1}.png", :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %><% if  post.title2 %><%=image_tag("node.png", :class => 'node') %><%=image_tag("#{post.image2}.png",  :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %><% if  post.title3 %><%=image_tag("node.png", :class => 'node') %><%=image_tag("#{post.image3}.png",  :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %><% if  post.title4 %><%=image_tag("node.png", :class => 'node') %><%=image_tag("#{post.image4}.png",  :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %><% if  post.title5 %><%=image_tag("node.png", :class => 'node') %><%=image_tag("#{post.image5}.png",  :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %>
+     </p>
+      
+    <p>
+       <% if  post.title2 %> <%= post.memo1 %> <% end %>
+        <% if  post.title3 %> <%= post.memo2 %> <% end %>
+         <% if  post.title4 %> <%=  post.memo3 %> <% end %>
+          <% if  post.title5 %> <%=  post.memo4 %> <% end %>
+      </p>  
+      
+          <a href="/posts/show3/<%= post.id %>" class="btn btn-default">이게시물을 좀더 자세히 볼래요</a>
+          <div style="height: 10px;"></div>
 
-    
-        
-<% end %>
+ <% end %>
 
+<!--<a class="btn btn-default" href="#" role="button">Link</a>-->
+<!--<button class="btn btn-default" type="submit">Button</button>-->
+<!--<input class="btn btn-default" type="button" value="Input">-->
+<!--<input class="btn btn-default" type="submit" value="Submit">-->
+
+</div>

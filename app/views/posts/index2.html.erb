@@ -1,68 +1,45 @@
 
 
 
+<div class="container" >
+  
+<h2 class ="hyo2" style="height: 20px;">My Page</h2> 
 
-<h3 class="hyo1"><a class="btn btn-default"  href="#" role="button" href="/posts/index3/">내가짯던계획들보는 index3로</a></h3>
-
-<h2 class="font1">내가 걸은 길, 내가 걸을 길 ㅎ - 내 계획 짜기 </h2>
-<!--<a class="btn btn-default" href="#" role="button">Link</a>-->
-<!--<button class="btn btn-default" type="submit">Button</button>-->
-<!--<input class="btn btn-default" type="button" value="Input">-->
-<!--<input class="btn btn-default" type="submit" value="Submit">-->
-
+<div class="row">
 <% @post2s.each do |post| %>
-     
-      <h3><%= post.id %> : <%=image_tag("post.image.png") %> </h3>
-      <h3>제목 : <%= post.title %> </h3>
-      <h3>장소 : <%= post.id %> : <%= post.place %> </h3>
-
+    <div class = "col-xs-6 col-md-3">
+      <h3> <%=image_tag("#{post.image}.png") %> </h3>
+      <h5>이름 : <%= post.title %> </h5>
+      <h5>장소 : <%= post.place %> </h5>
+    
  
   <form action="/posts/create3/<%= post.id %>">
 
-    <p>이버튼을 누르면 개인 db33333333로 넘어가!</p>
-    <input class="btn btn-default"  type="submit" value="노드에 담기"> 
-  </form>
-
-    <h3><a class="btn btn-default" href="#" role="button" href ="/posts/destroy2/<%= post.id %>" data-confirm="진짜로삭제할거얌?후ㅜ">목록에서 지우기</a> </h3>
-
+    <input class="btn btn-default"  type="submit" value="경로에 담을래요">
+    <a class="btn btn-default"  role="button" href ="/posts/destroy2/<%= post.id %>" data-confirm="삭제 할까요?">노드를 지울래요</a>
+  </form></div>
 <% end %>
+</div>
+<hr style="border-color: white;">
+
+<h2 style>My Node Trip</h2>
 
 
-/////////////////////////////////////////////////////////////////////////////////
-<h2>여기가 db333이야!</h2>
 
 <% @post3s.each do |post3| %>
-     <div><%= post3.user.email.split("@").first %></div>
-      <div>id<%= post3.id %>:<%= post3.title1 %> </div>
-      <div><%= post3.id %>:<%=image_tag("post3.image1.png") %></div>
-      
-      
-      <div><%= post3.id %>:<%= post3.title2 %> </div>
-      <div><%= post3.id %>:<%=image_tag("post3.image2.png") %></div>
-    
-    
-       <div><%= post3.id %>:<%= post3.title3 %> </div>
-      <div><%= post3.id %>:<%=image_tag("post3.image3.png") %></div>
-      
-      
-      <div><%= post3.id %>:<%= post3.title4 %> </div>
-      <div><%= post3.id %>:<%=image_tag("post3.image4.png") %></div>
-      
-      
-       <div><%= post3.id %>:<%= post3.title5 %> </div>
-      <div><%= post3.id %>:<%=image_tag("post3.image5.png") %></div>
-     
- <% end %>
-<% @post3s.each do |post3| %>
 
-    <h3><a href ="/posts/destroy3/<%= post3.id %>" data-confirm="진짜로삭제할거얌?후ㅜ">삭제</a> </h3>
+     <div style="height: 40px; margin-top: 20px;"><%= post3.user.email.split("@").first %></div>
+      
+      <p>
+     <% if  post3.title1 %><%=image_tag("#{post3.image1}.png", :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %><% if  post3.title2 %><%=image_tag("node.png", :class => 'node') %><%=image_tag("#{post3.image2}.png",  :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %><% if  post3.title3 %><%=image_tag("node.png", :class => 'node') %><%=image_tag("#{post3.image3}.png",  :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %><% if  post3.title4 %><%=image_tag("node.png", :class => 'node') %><%=image_tag("#{post3.image4}.png",  :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %><% if  post3.title5 %><%=image_tag("node.png", :class => 'node') %><%=image_tag("#{post3.image5}.png",  :class => 'circle',  :style => "border: 3px solid rgb(140,135,132)") %><%end %>
+     </p>
 
  <% end %>
-///////////////////////////////////////////////////////////////////////////////
-  
+
   <% @post3s.each do |post3| %>
-        
-    <button class="btn btn-default" data-target="#layerpop" data-toggle="modal" >제출2</button><br/>
+    <br>
+    <a href ="/posts/destroy3/<%= post3.id %>" data-confirm="이 노드트립을 지울까요?" class="btn btn-default" role="button">이 노드 트립을 지울래요</a> 
+    <button class="btn btn-default" data-target="#layerpop" data-toggle="modal" >내 노드트립에 넣을래요</button><br/>
         <div class="modal fade" id="layerpop" >
           <div class="modal-dialog">
             <div class="modal-content">
@@ -75,24 +52,23 @@
               </div>
               <!-- body -->
               <div class="modal-body">
-                    Body
+                나의 노드 트립에 담았어요!
+                구경하러 갈까요?
               </div>
               <!-- Footer -->
               <div class="modal-footer">
-                Footer
-                <a class="btn btn-default" href="/posts/create4/<%= post3.id %>" role="button">내경로보기</a>
-                <a class="btn btn-default" href="/posts/create44/<%= post3.id %>" role="button">계속계획짜기</a>
+                <a class="btn btn-default" href="/posts/create4/<%= post3.id %>" role="button">내 노드트립 목록볼래요</a>
+                <a class="btn btn-default" href="/posts/create44/<%= post3.id %>" role="button">계속 계획 짜볼래요</a>
               </div>
             </div>
           </div>
         </div>
         
-  <form action="/posts/create4/<%= post3.id %>">
-
-    <p>이버튼을 누르면 개인 db4로 넘어가!</p>
-    <input type="submit" data-confirm="진짜로넘어갈거얌?후ㅜ"> 
-  </form>
 
  <% end %>
 
 
+ 
+ <h3 class='hyo1'><a class="btn btn-default" role="button" href="/posts/index3/">내 노드트립 목록을 볼래요</a></h3>
+
+</div>

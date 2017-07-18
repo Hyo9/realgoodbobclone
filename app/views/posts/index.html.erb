@@ -1,45 +1,81 @@
-내용을 입력할 화면입니다.
-
-<% @posts.each do |post| %>
-    <h3><a href="/posts/show/<%= post.id %>"><%= post.id %> :
-        <%= post.title %></a></h3>
-        <div class="square"><%=image_tag("post.image.png")  %></div>
-<% end %>
+<head>
 
 
+<style type="text/css">
+.cont {
+  position: relative;
+  width: 50%;
+}
+
+.card {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+    font-size: 20px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 250px;
+  width: 250px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #000000;
+}
+
+.cont:hover .overlay {
+  opacity: 0.7;
+}
+
+.otext {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+</style>
+
+</head>
+
+<div class="container" >
+  
+<h1 style="font-family: 'KoPub Batang', serif;">모든 노드를 볼까요?</h1>
 <% if current_user !=nil %>
 
-<% if current_user.id ==1 %> <a href="/posts/new/"> 마스터만 new로 갈수잇도록해야대!</a>
+<% if current_user.id ==1 %> <a class="btn btn-default" href="/posts/new/">새로운 노드 추가하기</a>
 <%end %>
 <%end %>
-<a href="/posts/index2/">내계획짜는 index2로</a>
 
-<br>
-
-
-<button class="btn btn-default" data-target="#layerpop" data-toggle="modal">모달출력버튼</button><br/>
-<div class="modal fade" id="layerpop" >
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <!-- header -->
-      <div class="modal-header">
-        <!-- 닫기(x) 버튼 -->
-        <button type="button" class="close" data-dismiss="modal">×</button>
-        <!-- header title -->
-        <h4 class="modal-title">Header</h4>
-      </div>
-      <!-- body -->
-      <div class="modal-body">
-            Body
-      </div>
-      <!-- Footer -->
-      <div class="modal-footer">
-        Footer
-        <a class="btn btn-default" href="/posts/index2/" role="button">Link</a>
-        <button type="button" class="btn btn-default" data-dismiss="modal"><a href="/posts/index2/">index2로</a></button>
-      </div>
+<div class="row">
+  <% @posts.each do |post| %>
+    <div class="col-xs-6 col-md-3">
+      <% if post.image.present? %>
+      
+         <p class="thumbnail text-center" style="padding-bottom: 0px; padding-top: 0px;">
+         <div class="cont">
+             <a href="/posts/show/<%= post.id %>" class="card">
+                 <%=image_tag("#{post.image}.png")  %>
+                 <div class="overlay">
+                     <p class="otext"><%= post.title %></p>
+                 </div>
+             </a>
+         </div>
+         </p>
+     
+      <% end %>
     </div>
-  </div>
+  <% end %>
 </div>
+<p>
+   <a href="/posts/index2/" style="color: rgb(136, 176, 75);">MYPAGE</a>
+</p>
 
- 
+</div>
